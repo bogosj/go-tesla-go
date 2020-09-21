@@ -13,6 +13,7 @@ type Config struct {
 	ClientSecret string
 	Email        string
 	Password     string
+	VIN          string
 }
 
 // New returns a Config from a json file at the provided path.
