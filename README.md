@@ -12,7 +12,7 @@ docker run --rm \
   ghcr.io/bogosj/go-tesla-go --spew
 ```
 
-The binary expects a configuration file to be mounted at /gtg.config.json, however this can be changed with `--config_file`. The structure of the configuration file can be found in [example.config.json](./example.config.json).
+The binary expects a configuration file to be mounted at /gtg.config.json, however this can be changed with `--config_file`. The structure of the configuration file can be found in [config/example.config.json](./config/example.config.json).
 
 The values for ClientID and ClientSecret can be found in instructions at https://tesla-api.timdorr.com/api-basics/authentication. Email/Password/VIN should be self explanitory.
 
