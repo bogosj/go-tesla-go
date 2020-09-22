@@ -9,7 +9,7 @@ The binary can be run from the docker image [ghcr.io/bogosj/go-tesla-go](https:/
 ```
 docker run --rm \
   -v /home/bogosj/docker/go-tesla-go/gtg.config.json:/gtg.config.json \
-  ghcr.io/bogosj/go-tesla-go --spew`
+  ghcr.io/bogosj/go-tesla-go --spew
 ```
 
 The binary expects a configuration file to be mounted at /gtg.config.json, however this can be changed with `--config_file`. The structure of the configuration file can be found in [example.config.json](./example.config.json).
