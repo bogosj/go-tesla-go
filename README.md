@@ -16,6 +16,8 @@ The binary expects a configuration file to be mounted at /gtg.config.json, howev
 
 The values for ClientID and ClientSecret can be found in instructions at https://tesla-api.timdorr.com/api-basics/authentication. Email/Password/VIN should be self explanitory.
 
+You can also install a local copy with `go get github.com/bogosj/go-tesla-go`.
+
 ## Flags
 The flags that start "if" verify conditions before taking actions.
 
