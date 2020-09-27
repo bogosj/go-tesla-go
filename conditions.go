@@ -38,6 +38,7 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 			os.Exit(1)
 		}
 	}
+
 	if flags.ifOutsideTempOver != 0 {
 		checkTemp := ftoc(flags.ifOutsideTempOver)
 		if checkTemp > cls.OutsideTemp {
@@ -53,6 +54,7 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 			os.Exit(1)
 		}
 	}
+
 	if flags.ifOutsideTempUnder != 0 {
 		checkTemp := ftoc(flags.ifOutsideTempUnder)
 		if checkTemp < cls.OutsideTemp {
