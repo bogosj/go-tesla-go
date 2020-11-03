@@ -3,12 +3,28 @@ package main
 import (
 	"log"
 	"os"
+	"strings"
+	"time"
 
 	"github.com/bogosj/tesla"
 	"github.com/umahmood/haversine"
 )
 
 func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, cls *tesla.ClimateState) {
+	if flags.ifBlockedDates != "" {
+		now := time.Now()
+		for _, d := range strings.Split(flags.ifBlockedDates, ",") {
+			t, err := time.Parse("2006-01-02", d)
+			if err != nil {
+				panic(err)
+			}
+			if t.Year() == now.Year() && t.YearDay() == now.YearDay() {
+				log.Printf("running on %s, exiting\n", d)
+				os.Exit(1)
+			}
+		}
+	}
+
 	if flags.ifPluggedIn {
 		cs := chs.ChargingState
 		log.Printf("charge state: %v\n", cs)

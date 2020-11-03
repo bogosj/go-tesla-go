@@ -27,6 +27,8 @@ type flags struct {
 
 	ifInsideTempOver, ifInsideTempUnder   float64
 	ifOutsideTempOver, ifOutsideTempUnder float64
+
+	ifBlockedDates string
 }
 
 func setupFlags() flags {
@@ -54,6 +56,8 @@ func setupFlags() flags {
 	iitu := flag.Float64("if_inside_temp_under", 0, "set to test the inside temp, in F")
 	iotu := flag.Float64("if_outside_temp_under", 0, "set to test the outside temp, in F")
 
+	ibd := flag.String("if_blocked_dates", "", "dates (YYYY-MM-DD) comma separated to not execute on")
+
 	flag.Parse()
 	if *h1 || *h2 {
 		flag.PrintDefaults()
@@ -75,6 +79,7 @@ func setupFlags() flags {
 		ifInsideTempUnder:  *iitu,
 		ifOutsideTempOver:  *ioto,
 		ifOutsideTempUnder: *iotu,
+		ifBlockedDates:     *ibd,
 	}
 }
 

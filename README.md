@@ -27,6 +27,8 @@ The flags that start "if" verify conditions before taking actions.
   -h    display this message
   -help
         display this message
+  -if_blocked_dates string
+        dates (YYYY-MM-DD) comma separated to not execute on
   -if_in_geofence
         set to test car position. must set lat/lon/miles
   -if_inside_temp_over float
