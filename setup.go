@@ -9,10 +9,12 @@ import (
 
 	"github.com/bogosj/go-tesla-go/config"
 	"github.com/bogosj/tesla"
+	"github.com/fatih/color"
 )
 
 type flags struct {
 	configFilePath string
+	configFileSet  bool
 
 	// Actions
 	spew, startAC, stopAC bool
@@ -29,6 +31,19 @@ type flags struct {
 	ifOutsideTempOver, ifOutsideTempUnder float64
 
 	ifBlockedDates string
+}
+
+func isConfigFileFlagPassed() bool {
+	found := false
+	flag.Visit(func(f *flag.Flag) {
+		if f.Name == "config_file" {
+			found = true
+			w := color.New(color.FgRed, color.Bold).PrintFunc()
+			w("Warning: ")
+			fmt.Println("config_file is deprecated, please switch to use env based config")
+		}
+	})
+	return found
 }
 
 func setupFlags() flags {
@@ -65,6 +80,7 @@ func setupFlags() flags {
 	}
 	return flags{
 		configFilePath:     *cf,
+		configFileSet:      isConfigFileFlagPassed(),
 		spew:               *spew,
 		setChargeLimit:     *scl,
 		setTemp:            *st,

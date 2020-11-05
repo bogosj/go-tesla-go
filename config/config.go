@@ -5,6 +5,8 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+
+	"github.com/kelseyhightower/envconfig"
 )
 
 // Config is the main binary configuration.
@@ -35,4 +37,14 @@ func New(path string) Config {
 		log.Fatal(err)
 	}
 	return cfg
+}
+
+// FromEnv returns a Config from the environment variables.
+func FromEnv() Config {
+	var c Config
+	err := envconfig.Process("gtg", &c)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return c
 }
