@@ -25,6 +25,26 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 		}
 	}
 
+	if isFlagPassed("if_speed_above") {
+		log.Printf("car speed is %v\n", ds.Speed)
+		if ds.Speed > flags.ifSpeedAbove {
+			log.Printf("speed is above %v\n", flags.ifSpeedAbove)
+		} else {
+			log.Printf("speed is below %v, exiting\n", flags.ifSpeedAbove)
+			os.Exit(1)
+		}
+	}
+
+	if isFlagPassed("if_speed_below") {
+		log.Printf("car speed is %v\n", ds.Speed)
+		if ds.Speed < flags.ifSpeedBelow {
+			log.Printf("speed is below %v\n", flags.ifSpeedBelow)
+		} else {
+			log.Printf("speed is above %v, exiting\n", flags.ifSpeedBelow)
+			os.Exit(1)
+		}
+	}
+
 	if flags.ifPluggedIn {
 		cs := chs.ChargingState
 		log.Printf("charge state: %v\n", cs)

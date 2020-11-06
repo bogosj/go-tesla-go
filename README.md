@@ -52,6 +52,10 @@ The flags that start "if" verify conditions before taking actions.
         set to test the outside temp, in F
   -if_plugged_in
         execute commands only if the car is plugged in (default true)
+  -if_speed_above float
+        set to test the speed of the car
+  -if_speed_below float
+        set to test the speed of the car
   -lat float
         latitude of the center of the geofence
   -lon float

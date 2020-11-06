@@ -30,20 +30,29 @@ type flags struct {
 	ifInsideTempOver, ifInsideTempUnder   float64
 	ifOutsideTempOver, ifOutsideTempUnder float64
 
+	ifSpeedBelow, ifSpeedAbove float64
+
 	ifBlockedDates string
 }
 
-func isConfigFileFlagPassed() bool {
+func isFlagPassed(name string) bool {
 	found := false
 	flag.Visit(func(f *flag.Flag) {
-		if f.Name == "config_file" {
+		if f.Name == name {
 			found = true
-			w := color.New(color.FgRed, color.Bold).PrintFunc()
-			w("Warning: ")
-			fmt.Println("config_file is deprecated, please switch to use env based config")
 		}
 	})
 	return found
+}
+
+func isConfigFileFlagPassed() bool {
+	if isFlagPassed("config_file") {
+		w := color.New(color.FgRed, color.Bold).PrintFunc()
+		w("Warning: ")
+		fmt.Println("config_file is deprecated, please switch to use env based config")
+		return true
+	}
+	return false
 }
 
 func setupFlags() flags {
@@ -71,6 +80,9 @@ func setupFlags() flags {
 	iitu := flag.Float64("if_inside_temp_under", 0, "set to test the inside temp, in F")
 	iotu := flag.Float64("if_outside_temp_under", 0, "set to test the outside temp, in F")
 
+	isa := flag.Float64("if_speed_above", 0, "set to test the speed of the car")
+	isb := flag.Float64("if_speed_below", 0, "set to test the speed of the car")
+
 	ibd := flag.String("if_blocked_dates", "", "dates (YYYY-MM-DD) comma separated to not execute on")
 
 	flag.Parse()
@@ -95,6 +107,8 @@ func setupFlags() flags {
 		ifInsideTempUnder:  *iitu,
 		ifOutsideTempOver:  *ioto,
 		ifOutsideTempUnder: *iotu,
+		ifSpeedAbove:       *isa,
+		ifSpeedBelow:       *isb,
 		ifBlockedDates:     *ibd,
 	}
 }
