@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"os"
 	"strings"
 	"time"
 
@@ -19,8 +18,7 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 				panic(err)
 			}
 			if t.Year() == now.Year() && t.YearDay() == now.YearDay() {
-				log.Printf("running on %s, exiting\n", d)
-				os.Exit(1)
+				log.Fatalf("running on %s, exiting\n", d)
 			}
 		}
 	}
@@ -28,8 +26,7 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 	if isFlagPassed("if_speed_above") {
 		log.Printf("car speed is %v\n", ds.Speed)
 		if ds.Speed < flags.ifSpeedAbove {
-			log.Printf("speed is below %v, exiting\n", flags.ifSpeedAbove)
-			os.Exit(1)
+			log.Fatalf("speed is below %v, exiting\n", flags.ifSpeedAbove)
 		}
 		log.Printf("speed is above %v\n", flags.ifSpeedAbove)
 	}
@@ -37,8 +34,7 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 	if isFlagPassed("if_speed_below") {
 		log.Printf("car speed is %v\n", ds.Speed)
 		if ds.Speed > flags.ifSpeedBelow {
-			log.Printf("speed is above %v, exiting\n", flags.ifSpeedBelow)
-			os.Exit(1)
+			log.Fatalf("speed is above %v, exiting\n", flags.ifSpeedBelow)
 		}
 		log.Printf("speed is below %v\n", flags.ifSpeedBelow)
 	}
@@ -49,8 +45,7 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 		if cs == "Charging" || cs == "Complete" {
 			log.Println("car is plugged in, continuing")
 		} else {
-			log.Println("car is not plugged in, exiting")
-			os.Exit(1)
+			log.Fatalf("car is not plugged in, exiting")
 		}
 	}
 
@@ -60,16 +55,14 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 		miles, _ := haversine.Distance(testPoint, carPoint)
 		log.Printf("car is %v miles from test point\n", miles)
 		if miles > flags.miles {
-			log.Printf("car is too far from test point, exiting")
-			os.Exit(1)
+			log.Fatalf("car is too far from test point, exiting")
 		}
 	}
 
 	if isFlagPassed("if_inside_temp_over") {
 		checkTemp := ftoc(flags.ifInsideTempOver)
 		if checkTemp > cls.InsideTemp {
-			log.Printf("temp of %v is greater than inside temp of %v, exiting\n", checkTemp, cls.InsideTemp)
-			os.Exit(1)
+			log.Fatalf("temp of %v is greater than inside temp of %v, exiting\n", checkTemp, cls.InsideTemp)
 		}
 		log.Printf("temp of %v is less then inside temp of %v\n", checkTemp, cls.InsideTemp)
 	}
@@ -77,8 +70,7 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 	if isFlagPassed("if_outside_temp_over") {
 		checkTemp := ftoc(flags.ifOutsideTempOver)
 		if checkTemp > cls.OutsideTemp {
-			log.Printf("temp of %v is greater than outside temp of %v, exiting\n", checkTemp, cls.OutsideTemp)
-			os.Exit(1)
+			log.Fatalf("temp of %v is greater than outside temp of %v, exiting\n", checkTemp, cls.OutsideTemp)
 		}
 		log.Printf("temp of %v is less than outside temp of %v\n", checkTemp, cls.OutsideTemp)
 	}
@@ -86,8 +78,7 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 	if isFlagPassed("if_inside_temp_under") {
 		checkTemp := ftoc(flags.ifInsideTempUnder)
 		if checkTemp < cls.InsideTemp {
-			log.Printf("temp of %v is less than inside temp of %v, exiting\n", checkTemp, cls.InsideTemp)
-			os.Exit(1)
+			log.Fatalf("temp of %v is less than inside temp of %v, exiting\n", checkTemp, cls.InsideTemp)
 		}
 		log.Printf("temp of %v is greater than inside temp of %v\n", checkTemp, cls.InsideTemp)
 	}
@@ -95,8 +86,7 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 	if isFlagPassed("if_outside_temp_under") {
 		checkTemp := ftoc(flags.ifOutsideTempUnder)
 		if checkTemp < cls.OutsideTemp {
-			log.Printf("temp of %v is less than outside temp of %v, exiting\n", checkTemp, cls.OutsideTemp)
-			os.Exit(1)
+			log.Fatalf("temp of %v is less than outside temp of %v, exiting\n", checkTemp, cls.OutsideTemp)
 		}
 		log.Printf("temp of %v is greater than outside temp of %v\n", checkTemp, cls.OutsideTemp)
 	}
