@@ -9,10 +9,12 @@ import (
 
 	"github.com/bogosj/go-tesla-go/config"
 	"github.com/bogosj/tesla"
+	"github.com/fatih/color"
 )
 
 type flags struct {
 	configFilePath string
+	configFileSet  bool
 
 	// Actions
 	spew, startAC, stopAC bool
@@ -27,6 +29,21 @@ type flags struct {
 
 	ifInsideTempOver, ifInsideTempUnder   float64
 	ifOutsideTempOver, ifOutsideTempUnder float64
+
+	ifBlockedDates string
+}
+
+func isConfigFileFlagPassed() bool {
+	found := false
+	flag.Visit(func(f *flag.Flag) {
+		if f.Name == "config_file" {
+			found = true
+			w := color.New(color.FgRed, color.Bold).PrintFunc()
+			w("Warning: ")
+			fmt.Println("config_file is deprecated, please switch to use env based config")
+		}
+	})
+	return found
 }
 
 func setupFlags() flags {
@@ -54,6 +71,8 @@ func setupFlags() flags {
 	iitu := flag.Float64("if_inside_temp_under", 0, "set to test the inside temp, in F")
 	iotu := flag.Float64("if_outside_temp_under", 0, "set to test the outside temp, in F")
 
+	ibd := flag.String("if_blocked_dates", "", "dates (YYYY-MM-DD) comma separated to not execute on")
+
 	flag.Parse()
 	if *h1 || *h2 {
 		flag.PrintDefaults()
@@ -61,6 +80,7 @@ func setupFlags() flags {
 	}
 	return flags{
 		configFilePath:     *cf,
+		configFileSet:      isConfigFileFlagPassed(),
 		spew:               *spew,
 		setChargeLimit:     *scl,
 		setTemp:            *st,
@@ -75,6 +95,7 @@ func setupFlags() flags {
 		ifInsideTempUnder:  *iitu,
 		ifOutsideTempOver:  *ioto,
 		ifOutsideTempUnder: *iotu,
+		ifBlockedDates:     *ibd,
 	}
 }
 

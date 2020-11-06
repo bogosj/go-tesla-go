@@ -7,14 +7,25 @@ A golang binary + docker image to make API calls to a Tesla vehicle.
 The binary can be run from the docker image [ghcr.io/bogosj/go-tesla-go](https://github.com/users/bogosj/packages/container/package/go-tesla-go).
 
 ```
-docker run --rm \
-  -v /home/bogosj/docker/go-tesla-go/gtg.config.json:/gtg.config.json \
-  ghcr.io/bogosj/go-tesla-go --spew
+docker run --rm ghcr.io/bogosj/go-tesla-go --spew
 ```
 
-The binary expects a configuration file to be mounted at /gtg.config.json, however this can be changed with `--config_file`. The structure of the configuration file can be found in [config/example.config.json](./config/example.config.json).
+The binary expects five environment variables to be set:
 
-The values for ClientID and ClientSecret can be found in instructions at https://tesla-api.timdorr.com/api-basics/authentication. Email/Password/VIN should be self explanitory.
+```
+GTG_CLIENTID
+GTG_CLIENTSECRET
+GTG_EMAIL
+GTG_PASSWORD
+GTG_VIN
+```
+
+These can be passed in the docker command with either the -e/--env flag or --env-file.
+
+The values for GTG_CLIENTID and GTG_CLIENTSECRET can be found in instructions at https://tesla-api.timdorr.com/api-basics/authentication. Email/Password/VIN should be self explanitory.
+
+### Deprecated
+The binary used to expect a configuration file to be mounted at /gtg.config.json, however this can be changed with `--config_file`. The structure of the configuration file can be found in [config/example.config.json](./config/example.config.json). This flag will be removed in v2.0.
 
 You can also install a local copy with `go get github.com/bogosj/go-tesla-go`.
 
@@ -27,6 +38,8 @@ The flags that start "if" verify conditions before taking actions.
   -h    display this message
   -help
         display this message
+  -if_blocked_dates string
+        dates (YYYY-MM-DD) comma separated to not execute on
   -if_in_geofence
         set to test car position. must set lat/lon/miles
   -if_inside_temp_over float

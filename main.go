@@ -7,7 +7,12 @@ import (
 
 func main() {
 	flags := setupFlags()
-	c := config.New(flags.configFilePath)
+	var c config.Config
+	if flags.configFileSet {
+		c = config.New(flags.configFilePath)
+	} else {
+		c = config.FromEnv()
+	}
 	client := newTeslaClient(c)
 
 	vehicle, err := vehicleByVin(client, c.VIN)
