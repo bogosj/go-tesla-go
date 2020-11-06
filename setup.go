@@ -56,7 +56,7 @@ func isConfigFileFlagPassed() bool {
 }
 
 func setupFlags() flags {
-	cf := flag.String("config_file", "/gtg.config.json", "path to the config file")
+	cf := flag.String("config_file", "/gtg.config.json", "path to the config file (deprecated)")
 	h1 := flag.Bool("help", false, "display this message")
 	h2 := flag.Bool("h", false, "display this message")
 

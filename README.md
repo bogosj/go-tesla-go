@@ -34,7 +34,7 @@ The flags that start "if" verify conditions before taking actions.
 
 ```
   -config_file string
-        path to the config file (default "/gtg.config.json")
+        path to the config file (deprecated) (default "/gtg.config.json")
   -h    display this message
   -help
         display this message
