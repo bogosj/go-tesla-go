@@ -67,35 +67,39 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 		}
 	}
 
-	if flags.ifInsideTempOver != 0 {
+	if isFlagPassed("if_inside_temp_over") {
 		checkTemp := ftoc(flags.ifInsideTempOver)
 		if checkTemp > cls.InsideTemp {
 			log.Printf("temp of %v is greater than inside temp of %v, exiting\n", checkTemp, cls.InsideTemp)
 			os.Exit(1)
 		}
+		log.Printf("temp of %v is less then inside temp of %v\n", checkTemp, cls.InsideTemp)
 	}
 
-	if flags.ifOutsideTempOver != 0 {
+	if isFlagPassed("if_outside_temp_over") {
 		checkTemp := ftoc(flags.ifOutsideTempOver)
 		if checkTemp > cls.OutsideTemp {
 			log.Printf("temp of %v is greater than outside temp of %v, exiting\n", checkTemp, cls.OutsideTemp)
 			os.Exit(1)
 		}
+		log.Printf("temp of %v is less than outside temp of %v\n", checkTemp, cls.OutsideTemp)
 	}
 
-	if flags.ifInsideTempUnder != 0 {
+	if isFlagPassed("if_inside_temp_under") {
 		checkTemp := ftoc(flags.ifInsideTempUnder)
 		if checkTemp < cls.InsideTemp {
 			log.Printf("temp of %v is less than inside temp of %v, exiting\n", checkTemp, cls.InsideTemp)
 			os.Exit(1)
 		}
+		log.Printf("temp of %v is greater than inside temp of %v\n", checkTemp, cls.InsideTemp)
 	}
 
-	if flags.ifOutsideTempUnder != 0 {
+	if isFlagPassed("if_outside_temp_under") {
 		checkTemp := ftoc(flags.ifOutsideTempUnder)
 		if checkTemp < cls.OutsideTemp {
 			log.Printf("temp of %v is less than outside temp of %v, exiting\n", checkTemp, cls.OutsideTemp)
 			os.Exit(1)
 		}
+		log.Printf("temp of %v is greater than outside temp of %v\n", checkTemp, cls.OutsideTemp)
 	}
 }
