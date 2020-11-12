@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.3.1
+
+* Rebuilt with go v1.15.5.
+
+---
+
 ## v1.3
 
 #### Enhancements:
