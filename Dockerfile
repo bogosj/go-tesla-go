@@ -1,4 +1,4 @@
-FROM golang:1.15.4-buster AS builder
+FROM golang:1.15.5-buster AS builder
 RUN go get github.com/bogosj/go-tesla-go
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /go-tesla-go github.com/bogosj/go-tesla-go
 
