@@ -1,9 +1,8 @@
 package main
 
 import (
-	"log"
-
 	"github.com/bogosj/tesla"
+	log "github.com/sirupsen/logrus"
 )
 
 func takeActions(flags flags, vehicle *struct{ *tesla.Vehicle }) {

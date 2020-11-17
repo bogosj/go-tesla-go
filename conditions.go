@@ -1,11 +1,11 @@
 package main
 
 import (
-	"log"
 	"strings"
 	"time"
 
 	"github.com/bogosj/tesla"
+	log "github.com/sirupsen/logrus"
 	"github.com/umahmood/haversine"
 )
 

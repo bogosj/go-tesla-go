@@ -3,13 +3,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
 	"os"
 	"time"
 
 	"github.com/bogosj/go-tesla-go/config"
 	"github.com/bogosj/tesla"
 	"github.com/fatih/color"
+	log "github.com/sirupsen/logrus"
 )
 
 type flags struct {
