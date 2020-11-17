@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.4
+
+#### Enhancements:
+
+* Switch logs to the logrus library.
+
+---
+
 ## v1.3.1
 
 * Rebuilt with go v1.15.5.
