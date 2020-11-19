@@ -42,11 +42,10 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 	if flags.ifPluggedIn {
 		cs := chs.ChargingState
 		log.Printf("charge state: %v\n", cs)
-		if cs == "Charging" || cs == "Complete" {
-			log.Println("car is plugged in, continuing")
-		} else {
+		if cs == "Disconnected" {
 			log.Fatalf("car is not plugged in, exiting")
 		}
+		log.Println("car is plugged in, continuing")
 	}
 
 	if flags.ifInGeofence {

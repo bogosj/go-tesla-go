@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.4.1
+
+#### Bug Fixes:
+
+* Fixed check --if_plugged_in not recognizing "NoPower" state.
+
+---
+
 ## v1.4
 
 #### Enhancements:
