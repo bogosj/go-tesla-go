@@ -145,7 +145,7 @@ func vehicleByVin(client *tesla.Client, vin string) (*struct{ *tesla.Vehicle }, 
 func wakeup(vehicle *struct{ *tesla.Vehicle }) {
 	i := 1
 	for {
-		log.Printf("waking up car, attempt #%v\n", i)
+		log.Printf("waking up car, attempt #%v", i)
 		_, err := vehicle.Wakeup()
 		if err == nil {
 			break
@@ -158,7 +158,7 @@ func wakeup(vehicle *struct{ *tesla.Vehicle }) {
 func getData(vehicle *struct{ *tesla.Vehicle }) (ds *tesla.DriveState, chs *tesla.ChargeState, cls *tesla.ClimateState) {
 	i := 1
 	for {
-		log.Printf("getting drive state, attempt #%v\n", i)
+		log.Printf("getting drive state, attempt #%v", i)
 		s, err := vehicle.DriveState()
 		if err == nil {
 			ds = s
@@ -170,7 +170,7 @@ func getData(vehicle *struct{ *tesla.Vehicle }) (ds *tesla.DriveState, chs *tesl
 
 	i = 1
 	for {
-		log.Printf("getting charge state, attempt #%v\n", i)
+		log.Printf("getting charge state, attempt #%v", i)
 		s, err := vehicle.ChargeState()
 		if err == nil {
 			chs = s
@@ -182,7 +182,7 @@ func getData(vehicle *struct{ *tesla.Vehicle }) (ds *tesla.DriveState, chs *tesl
 
 	i = 1
 	for {
-		log.Printf("getting climate state, attempt #%v\n", i)
+		log.Printf("getting climate state, attempt #%v", i)
 		s, err := vehicle.ClimateState()
 		if err == nil {
 			cls = s

@@ -1,5 +1,13 @@
 # Changelog
 
+## vNext
+
+#### Bug Fixes:
+
+* Removed \n from the end of log lines.
+
+---
+
 ## v1.4.1
 
 #### Bug Fixes:

@@ -7,7 +7,7 @@ import (
 
 func takeActions(flags flags, vehicle *struct{ *tesla.Vehicle }) {
 	if flags.setChargeLimit != 0 {
-		log.Printf("setting charge limit to %v\n", flags.setChargeLimit)
+		log.Printf("setting charge limit to %v", flags.setChargeLimit)
 		vehicle.SetChargeLimit(flags.setChargeLimit)
 	}
 
@@ -23,7 +23,7 @@ func takeActions(flags flags, vehicle *struct{ *tesla.Vehicle }) {
 
 	if flags.setTemp != 0 {
 		t := ftoc(flags.setTemp)
-		log.Printf("setting the interior temp to %vC\n", t)
+		log.Printf("setting the interior temp to %vC", t)
 		vehicle.SetTemprature(t, t)
 	}
 
