@@ -49,7 +49,9 @@ func isConfigFileFlagPassed() bool {
 	if isFlagPassed("config_file") {
 		w := color.New(color.FgRed, color.Bold).PrintFunc()
 		w("Warning: ")
-		fmt.Println("config_file is deprecated, please switch to use env based config")
+		m := "config_file is deprecated, please switch to use env based config"
+		fmt.Println(m)
+		log.Warn(m)
 		return true
 	}
 	return false

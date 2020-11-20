@@ -1,10 +1,11 @@
 # Changelog
 
-## vNext
+## v1.4.2
 
 #### Bug Fixes:
 
 * Removed \n from the end of log lines.
+* Add warning in logs about config_file.
 
 ---
 
