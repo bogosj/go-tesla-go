@@ -124,7 +124,7 @@ func newTeslaClient(c config.Config) *tesla.Client {
 			Password:     c.Password,
 		})
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	return client
 }
@@ -132,7 +132,7 @@ func newTeslaClient(c config.Config) *tesla.Client {
 func vehicleByVin(client *tesla.Client, vin string) (*struct{ *tesla.Vehicle }, error) {
 	vehicles, err := client.Vehicles()
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	for _, v := range vehicles {

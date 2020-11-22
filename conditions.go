@@ -15,7 +15,7 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 		for _, d := range strings.Split(flags.ifBlockedDates, ",") {
 			t, err := time.Parse("2006-01-02", d)
 			if err != nil {
-				panic(err)
+				log.Fatal(err)
 			}
 			if t.Year() == now.Year() && t.YearDay() == now.YearDay() {
 				log.Fatalf("running on %s, exiting", d)

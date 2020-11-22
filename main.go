@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/bogosj/go-tesla-go/config"
 	"github.com/davecgh/go-spew/spew"
+	log "github.com/sirupsen/logrus"
 )
 
 func main() {
@@ -17,7 +18,7 @@ func main() {
 
 	vehicle, err := vehicleByVin(client, c.VIN)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	wakeup(vehicle)
