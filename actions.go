@@ -26,5 +26,4 @@ func takeActions(flags flags, vehicle *struct{ *tesla.Vehicle }) {
 		log.Printf("setting the interior temp to %vC", t)
 		vehicle.SetTemprature(t, t)
 	}
-
 }
