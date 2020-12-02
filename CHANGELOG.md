@@ -4,6 +4,7 @@
 
 #### Enhancements:
 
+* **Removed ability to configure via JSON file.**
 * Set the temperature before enabling/disabling A/C.
 
 ---
