@@ -29,7 +29,7 @@ These can be passed in the docker command with either the -e/--env flag or --env
 The values for GTG_CLIENTID and GTG_CLIENTSECRET can be found in instructions at https://tesla-api.timdorr.com/api-basics/authentication. Email/Password/VIN should be self explanitory.
 
 ### Deprecated
-The binary used to expect a configuration file to be mounted at /gtg.config.json, however this can be changed with `--config_file`. The structure of the configuration file can be found in [config/example.config.json](./config/example.config.json). This flag will be removed in v2.0.
+The binary used to expect a configuration file to be mounted at /gtg.config.json, however this used to be changed with `--config_file`. This flag was removed in v2.0.
 
 You can also install a local copy with `go get github.com/bogosj/go-tesla-go`.
 
@@ -37,8 +37,6 @@ You can also install a local copy with `go get github.com/bogosj/go-tesla-go`.
 The flags that start "if" verify conditions before taking actions.
 
 ```
-  -config_file string
-        path to the config file (deprecated) (default "/gtg.config.json")
   -h    display this message
   -help
         display this message
