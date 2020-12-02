@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.0
+
+#### Enhancements:
+
+* Set the temperature before enabling/disabling A/C.
+
+---
+
 ## v1.4.2
 
 #### Bug Fixes:

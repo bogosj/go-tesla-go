@@ -11,6 +11,12 @@ func takeActions(flags flags, vehicle *struct{ *tesla.Vehicle }) {
 		vehicle.SetChargeLimit(flags.setChargeLimit)
 	}
 
+	if flags.setTemp != 0 {
+		t := ftoc(flags.setTemp)
+		log.Printf("setting the interior temp to %vC", t)
+		vehicle.SetTemprature(t, t)
+	}
+
 	if flags.startAC {
 		log.Println("starting the A/C")
 		vehicle.StartAirConditioning()
@@ -19,11 +25,5 @@ func takeActions(flags flags, vehicle *struct{ *tesla.Vehicle }) {
 	if flags.stopAC {
 		log.Println("stopping the A/C")
 		vehicle.StopAirConditioning()
-	}
-
-	if flags.setTemp != 0 {
-		t := ftoc(flags.setTemp)
-		log.Printf("setting the interior temp to %vC", t)
-		vehicle.SetTemprature(t, t)
 	}
 }
