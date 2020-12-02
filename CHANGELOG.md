@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.0
+
+#### Enhancements:
+
+* **Removed ability to configure via JSON file.**
+* Set the temperature before enabling/disabling A/C.
+
+---
+
 ## v1.4.2
 
 #### Bug Fixes:

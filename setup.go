@@ -8,14 +8,10 @@ import (
 
 	"github.com/bogosj/go-tesla-go/config"
 	"github.com/bogosj/tesla"
-	"github.com/fatih/color"
 	log "github.com/sirupsen/logrus"
 )
 
 type flags struct {
-	configFilePath string
-	configFileSet  bool
-
 	// Actions
 	spew, startAC, stopAC bool
 	setChargeLimit        int
@@ -45,20 +41,7 @@ func isFlagPassed(name string) bool {
 	return found
 }
 
-func isConfigFileFlagPassed() bool {
-	if isFlagPassed("config_file") {
-		w := color.New(color.FgRed, color.Bold).PrintFunc()
-		w("Warning: ")
-		m := "config_file is deprecated, please switch to use env based config"
-		fmt.Println(m)
-		log.Warn(m)
-		return true
-	}
-	return false
-}
-
 func setupFlags() flags {
-	cf := flag.String("config_file", "/gtg.config.json", "path to the config file (deprecated)")
 	h1 := flag.Bool("help", false, "display this message")
 	h2 := flag.Bool("h", false, "display this message")
 
@@ -93,8 +76,6 @@ func setupFlags() flags {
 		os.Exit(1)
 	}
 	return flags{
-		configFilePath:     *cf,
-		configFileSet:      isConfigFileFlagPassed(),
 		spew:               *spew,
 		setChargeLimit:     *scl,
 		setTemp:            *st,
