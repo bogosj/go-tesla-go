@@ -1,0 +1,3 @@
+#!/bin/bash
+
+for env in $( cat ~/docker/go-tesla-go/env.list ); do export $(echo $env | sed -e 's/"//g'); done
