@@ -2,9 +2,9 @@
 
 A golang binary + docker image to make API calls to a Tesla vehicle.
 
-## WARNING
+## Everything's Broken
 
-This almost definitely does not work if you've enabled MFA on your account. I'm following [this issue](https://github.com/timdorr/tesla-api/issues/215) and will likely implement whatever changes are necessary to use MFA once I'm confident I can do so without bricking my current setup.
+**NOTE**: Things appear broken now due to an API change. I'm following [this issue](https://github.com/timdorr/tesla-api/issues/215) and will implement whatever changes are necessary to use MFA.
 
 ## Usage
 
