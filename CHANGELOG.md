@@ -1,5 +1,13 @@
 # Changelog
 
+## v3.0
+
+#### Enhancements:
+
+* Brought back to life through the use of an OAuth2 client.
+
+---
+
 ## v2.0
 
 #### Enhancements:
