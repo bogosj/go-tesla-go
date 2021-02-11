@@ -1,5 +1,14 @@
 # Changelog
 
+## v3.0.1
+
+#### Enhancements:
+
+* Base Docker image updated to Alpine 3.13 latest.
+* Build using Go v1.15 latest.
+
+---
+
 ## v3.0
 
 #### Enhancements:
