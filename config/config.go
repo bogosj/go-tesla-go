@@ -7,11 +7,9 @@ import (
 
 // Config is the main binary configuration.
 type Config struct {
-	ClientID     string
-	ClientSecret string
-	Email        string
-	Password     string
-	VIN          string
+	OAuthConfigPath string
+	OAuthTokenPath  string
+	VIN             string
 }
 
 // FromEnv returns a Config from the environment variables.

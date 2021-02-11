@@ -7,5 +7,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/sirupsen/logrus v1.7.0
+	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/umahmood/haversine v0.0.0-20151105152445-808ab04add26
+	golang.org/x/oauth2 v0.0.0-20210210192628-66670185b0cd
 )

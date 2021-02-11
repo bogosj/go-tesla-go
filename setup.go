@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"os"
@@ -97,16 +98,12 @@ func setupFlags() flags {
 }
 
 func newTeslaClient(c config.Config) *tesla.Client {
-	client, err := tesla.NewClient(
-		&tesla.Auth{
-			ClientID:     c.ClientID,
-			ClientSecret: c.ClientSecret,
-			Email:        c.Email,
-			Password:     c.Password,
-		})
+	oc, err := newOAuth2Client(context.Background(), c.OAuthConfigPath, c.OAuthTokenPath)
 	if err != nil {
 		log.Fatal(err)
 	}
+	client := &tesla.Client{HTTP: oc}
+	tesla.ActiveClient = client
 	return client
 }
 
