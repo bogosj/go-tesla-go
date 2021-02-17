@@ -1,5 +1,13 @@
 # Changelog
 
+## v3.0.2
+
+#### Enhancements:
+
+* Build using Go v1.16 latest.
+
+---
+
 ## v3.0.1
 
 #### Enhancements:
