@@ -98,16 +98,14 @@ func setupFlags() flags {
 }
 
 func newTeslaClient(c config.Config) *tesla.Client {
-	oc, err := newOAuth2Client(context.Background(), c.OAuthConfigPath, c.OAuthTokenPath)
+	client, err := tesla.NewClientFromTokenPath(context.Background(), c.OAuthTokenPath)
 	if err != nil {
 		log.Fatal(err)
 	}
-	client := &tesla.Client{HTTP: oc}
-	tesla.ActiveClient = client
 	return client
 }
 
-func vehicleByVin(client *tesla.Client, vin string) (*struct{ *tesla.Vehicle }, error) {
+func vehicleByVin(client *tesla.Client, vin string) (*tesla.Vehicle, error) {
 	vehicles, err := client.Vehicles()
 	if err != nil {
 		log.Fatal(err)
@@ -115,14 +113,14 @@ func vehicleByVin(client *tesla.Client, vin string) (*struct{ *tesla.Vehicle }, 
 
 	for _, v := range vehicles {
 		if v.Vin == vin {
-			return &v, nil
+			return v, nil
 		}
 	}
 
 	return nil, fmt.Errorf("could not find vehicle with vin %q", vin)
 }
 
-func wakeup(vehicle *struct{ *tesla.Vehicle }) {
+func wakeup(vehicle *tesla.Vehicle) {
 	i := 1
 	for {
 		log.Printf("waking up car, attempt #%v", i)
@@ -135,7 +133,7 @@ func wakeup(vehicle *struct{ *tesla.Vehicle }) {
 	}
 }
 
-func getData(vehicle *struct{ *tesla.Vehicle }) (ds *tesla.DriveState, chs *tesla.ChargeState, cls *tesla.ClimateState) {
+func getData(vehicle *tesla.Vehicle) (ds *tesla.DriveState, chs *tesla.ChargeState, cls *tesla.ClimateState) {
 	i := 1
 	for {
 		log.Printf("getting drive state, attempt #%v", i)
