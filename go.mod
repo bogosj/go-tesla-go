@@ -6,6 +6,6 @@ require (
 	github.com/bogosj/tesla v0.0.0-20210224182651-5c7752daa733
 	github.com/davecgh/go-spew v1.1.1
 	github.com/kelseyhightower/envconfig v1.4.0
-	github.com/sirupsen/logrus v1.8.0
+	github.com/sirupsen/logrus v1.8.1
 	github.com/umahmood/haversine v0.0.0-20151105152445-808ab04add26
 )
