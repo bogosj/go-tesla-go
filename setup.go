@@ -29,6 +29,8 @@ type flags struct {
 
 	ifSpeedBelow, ifSpeedAbove float64
 
+	ifBatteryAbove, ifBatteryBelow int
+
 	ifBlockedDates string
 }
 
@@ -69,6 +71,9 @@ func setupFlags() flags {
 	isa := flag.Float64("if_speed_above", 0, "set to test the speed of the car")
 	isb := flag.Float64("if_speed_below", 0, "set to test the speed of the car")
 
+	iba := flag.Int("if_battery_above", 0, "set to test the battery level")
+	ibb := flag.Int("if_battery_below", 0, "set to test the battery level")
+
 	ibd := flag.String("if_blocked_dates", "", "dates (YYYY-MM-DD) comma separated to not execute on")
 
 	flag.Parse()
@@ -94,6 +99,8 @@ func setupFlags() flags {
 		ifSpeedAbove:       *isa,
 		ifSpeedBelow:       *isb,
 		ifBlockedDates:     *ibd,
+		ifBatteryAbove:     *iba,
+		ifBatteryBelow:     *ibb,
 	}
 }
 

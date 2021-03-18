@@ -30,6 +30,10 @@ The flags that start "if" verify conditions before taking actions.
   -h    display this message
   -help
         display this message
+  -if_battery_above int
+        set to test the battery level
+  -if_battery_below int
+        set to test the battery level
   -if_blocked_dates string
         dates (YYYY-MM-DD) comma separated to not execute on
   -if_in_geofence

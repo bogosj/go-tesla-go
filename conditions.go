@@ -23,6 +23,22 @@ func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, 
 		}
 	}
 
+	if isFlagPassed("if_battery_above") {
+		log.Printf("battery level is %v", chs.BatteryLevel)
+		if chs.BatteryLevel < flags.ifBatteryAbove {
+			log.Fatalf("battery level is below %v, exiting", flags.ifBatteryAbove)
+		}
+		log.Printf("battery level is above %v", flags.ifBatteryAbove)
+	}
+
+	if isFlagPassed("if_battery_below") {
+		log.Printf("battery level is %v", chs.BatteryLevel)
+		if chs.BatteryLevel > flags.ifBatteryBelow {
+			log.Fatalf("battery level is above %v, exiting", flags.ifBatteryBelow)
+		}
+		log.Printf("battery level is below %v", flags.ifBatteryBelow)
+	}
+
 	if isFlagPassed("if_speed_above") {
 		log.Printf("car speed is %v", ds.Speed)
 		if ds.Speed < flags.ifSpeedAbove {
