@@ -1,5 +1,21 @@
 # Changelog
 
+## v3.1
+
+#### Enhancements:
+
+* Added if_battery_above and if_battery_below condition flags.
+
+---
+
+## v3.0.3
+
+#### Enhancements:
+
+* Removed need for OAuth config file.
+
+---
+
 ## v3.0.2
 
 #### Enhancements:
