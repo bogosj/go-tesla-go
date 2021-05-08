@@ -105,7 +105,7 @@ func setupFlags() flags {
 }
 
 func newTeslaClient(c config.Config) *tesla.Client {
-	client, err := tesla.NewClientFromTokenPath(context.Background(), c.OAuthTokenPath)
+	client, err := tesla.NewClient(context.Background(), tesla.WithTokenFile(c.OAuthTokenPath))
 	if err != nil {
 		log.Fatal(err)
 	}
