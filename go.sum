@@ -37,8 +37,8 @@ github.com/PuerkitoBio/goquery v1.7.1 h1:oE+T06D+1T7LNrn91B4aERsRIeCLJ/oPSa6xB9F
 github.com/PuerkitoBio/goquery v1.7.1/go.mod h1:XY0pP4kfraEmmV1O7Uf6XyjoslwsneBbgeDjLYuN8xY=
 github.com/andybalholm/cascadia v1.2.0 h1:vuRCkM5Ozh/BfmsaTm26kbjm0mIOM3yS5Ek/F5h18aE=
 github.com/andybalholm/cascadia v1.2.0/go.mod h1:YCyR8vOZT9aZ1CHEd8ap0gMVm2aFgxBp0T0eFw1RUQY=
-github.com/bogosj/tesla v1.0.1 h1:4YOQd+Mfew1rPsL6eegNG4icY7MCj+cV+8MjhE2UMKs=
-github.com/bogosj/tesla v1.0.1/go.mod h1:LPbTjUSyUTPhTyi6fpybXnv2t/Hv0V8FX6+hyEIpL98=
+github.com/bogosj/tesla v1.0.2 h1:6i1RCjywaAt06ypeUWDIm/7vh609tZs/ubIInmVfyHA=
+github.com/bogosj/tesla v1.0.2/go.mod h1:LPbTjUSyUTPhTyi6fpybXnv2t/Hv0V8FX6+hyEIpL98=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=
 github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod h1:nSuG5e5PlCu98SY8svDHJxuZscDgtXS6KTTbou5AhLI=
