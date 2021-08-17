@@ -1,6 +1,6 @@
 module github.com/bogosj/go-tesla-go
 
-go 1.16
+go 1.17
 
 require (
 	github.com/bogosj/tesla v1.0.2
