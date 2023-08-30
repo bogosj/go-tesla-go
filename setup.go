@@ -143,7 +143,7 @@ func wakeup(vehicle *tesla.Vehicle) {
 func getData(vehicle *tesla.Vehicle) (ds *tesla.VehicleData) {
 	i := 1
 	for {
-		log.Printf("getting drive state, attempt #%v, v:%v", i, vehicle)
+		log.Printf("getting drive state, attempt #%v", i)
 		s, err := vehicle.Data()
 		if err == nil {
 			ds = s
