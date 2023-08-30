@@ -17,12 +17,10 @@ func main() {
 	}
 
 	wakeup(vehicle)
-	ds, chs, cls := getData(vehicle)
+	ds := getData(vehicle)
 	if flags.spew {
 		spew.Dump(ds)
-		spew.Dump(chs)
-		spew.Dump(cls)
 	}
-	checkConditions(flags, chs, ds, cls)
+	checkConditions(flags, ds)
 	takeActions(flags, vehicle)
 }

@@ -140,38 +140,16 @@ func wakeup(vehicle *tesla.Vehicle) {
 	}
 }
 
-func getData(vehicle *tesla.Vehicle) (ds *tesla.DriveState, chs *tesla.ChargeState, cls *tesla.ClimateState) {
+func getData(vehicle *tesla.Vehicle) (ds *tesla.VehicleData) {
 	i := 1
 	for {
-		log.Printf("getting drive state, attempt #%v", i)
-		s, err := vehicle.DriveState()
+		log.Printf("getting drive state, attempt #%v, v:%v", i, vehicle)
+		s, err := vehicle.Data()
 		if err == nil {
 			ds = s
 			break
-		}
-		time.Sleep(2 * time.Second)
-		i++
-	}
-
-	i = 1
-	for {
-		log.Printf("getting charge state, attempt #%v", i)
-		s, err := vehicle.ChargeState()
-		if err == nil {
-			chs = s
-			break
-		}
-		time.Sleep(2 * time.Second)
-		i++
-	}
-
-	i = 1
-	for {
-		log.Printf("getting climate state, attempt #%v", i)
-		s, err := vehicle.ClimateState()
-		if err == nil {
-			cls = s
-			break
+		} else {
+			log.Errorf("error: %s", err)
 		}
 		time.Sleep(2 * time.Second)
 		i++

@@ -9,7 +9,10 @@ import (
 	"github.com/umahmood/haversine"
 )
 
-func checkConditions(flags flags, chs *tesla.ChargeState, ds *tesla.DriveState, cls *tesla.ClimateState) {
+func checkConditions(flags flags, sr *tesla.VehicleData) {
+	ds := sr.Response.DriveState
+	chs := sr.Response.ChargeState
+	cls := sr.Response.ClimateState
 	if flags.ifBlockedDates != "" {
 		now := time.Now()
 		for _, d := range strings.Split(flags.ifBlockedDates, ",") {
