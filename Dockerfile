@@ -1,4 +1,4 @@
-FROM golang:1.21-buster AS builder
+FROM golang:1.21-bookworm AS builder
 WORKDIR /gtg
 COPY . /gtg
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /gtg/
