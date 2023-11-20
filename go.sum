@@ -3,8 +3,8 @@ github.com/PuerkitoBio/goquery v1.8.1/go.mod h1:Q8ICL1kNUJ2sXGoAhPGUdYDJvgQgHzJs
 github.com/andybalholm/cascadia v1.3.1/go.mod h1:R4bJ1UQfqADjvDa4P6HZHLh/3OxWWEqc0Sk8XGwHqvA=
 github.com/andybalholm/cascadia v1.3.2 h1:3Xi6Dw5lHF15JtdcmAHD3i1+T8plmv7BQ/nsViSLyss=
 github.com/andybalholm/cascadia v1.3.2/go.mod h1:7gtRlve5FxPPgIgX36uWBX58OdBsSS6lUvCFb+h7KvU=
-github.com/bogosj/tesla v1.2.0 h1:0LY0KRnv94nqYnitr63wY+CUi4/eQ1IOsauu1iNa848=
-github.com/bogosj/tesla v1.2.0/go.mod h1:l10JPNhF1f+61XwzHZZ2uoTINBF9Vo+PVYBtlUnVx6E=
+github.com/bogosj/tesla v1.3.0 h1:6K/4ZMNYXe3toXUwBbBhtYcKwNFnCTKc4YyUj1Pxc2c=
+github.com/bogosj/tesla v1.3.0/go.mod h1:l10JPNhF1f+61XwzHZZ2uoTINBF9Vo+PVYBtlUnVx6E=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
